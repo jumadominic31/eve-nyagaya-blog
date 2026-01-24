@@ -11,7 +11,7 @@ export function Navbar() {
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <Link href="/">
             <span className="font-serif text-2xl font-semibold tracking-tight cursor-pointer text-primary" data-testid="link-logo">
-              The Blog
+              Eve Nyagaya
             </span>
           </Link>
           <div className="flex items-center gap-1">
