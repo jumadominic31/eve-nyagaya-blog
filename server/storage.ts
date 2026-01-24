@@ -1,5 +1,5 @@
 import { db } from "./db";
-import { posts, type Post, type InsertPost } from "@shared/schema";
+import { posts, photos, type Post, type InsertPost, type Photo, type InsertPhoto } from "@shared/schema";
 import { eq, desc } from "drizzle-orm";
 
 export interface IStorage {
@@ -9,6 +9,9 @@ export interface IStorage {
   createPost(post: InsertPost): Promise<Post>;
   updatePost(id: number, post: Partial<InsertPost>): Promise<Post | undefined>;
   deletePost(id: number): Promise<void>;
+  getPhotos(): Promise<Photo[]>;
+  createPhoto(photo: InsertPhoto): Promise<Photo>;
+  deletePhoto(id: number): Promise<void>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -38,6 +41,19 @@ export class DatabaseStorage implements IStorage {
 
   async deletePost(id: number): Promise<void> {
     await db.delete(posts).where(eq(posts.id, id));
+  }
+
+  async getPhotos(): Promise<Photo[]> {
+    return await db.select().from(photos).orderBy(desc(photos.createdAt));
+  }
+
+  async createPhoto(insertPhoto: InsertPhoto): Promise<Photo> {
+    const [photo] = await db.insert(photos).values(insertPhoto).returning();
+    return photo;
+  }
+
+  async deletePhoto(id: number): Promise<void> {
+    await db.delete(photos).where(eq(photos.id, id));
   }
 }
 

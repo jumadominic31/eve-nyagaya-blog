@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { insertPostSchema, posts } from './schema';
+import { insertPostSchema, insertPhotoSchema, posts, photos } from './schema';
 
 export const errorSchemas = {
   validation: z.object({
@@ -53,6 +53,32 @@ export const api = {
     delete: {
       method: 'DELETE' as const,
       path: '/api/posts/:id',
+      responses: {
+        204: z.void(),
+        404: errorSchemas.notFound,
+      },
+    },
+  },
+  photos: {
+    list: {
+      method: 'GET' as const,
+      path: '/api/photos',
+      responses: {
+        200: z.array(z.custom<typeof photos.$inferSelect>()),
+      },
+    },
+    create: {
+      method: 'POST' as const,
+      path: '/api/photos',
+      input: insertPhotoSchema,
+      responses: {
+        201: z.custom<typeof photos.$inferSelect>(),
+        400: errorSchemas.validation,
+      },
+    },
+    delete: {
+      method: 'DELETE' as const,
+      path: '/api/photos/:id',
       responses: {
         204: z.void(),
         404: errorSchemas.notFound,
