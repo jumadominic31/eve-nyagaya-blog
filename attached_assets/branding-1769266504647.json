@@ -1,0 +1,79 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Times New Roman",
+      "count": 42
+    },
+    {
+      "family": "Montserrat",
+      "count": 27
+    },
+    {
+      "family": "Boston Angel",
+      "count": 7
+    },
+    {
+      "family": "Silver South",
+      "count": 1
+    }
+  ],
+  "colors": {
+    "primary": "#003878",
+    "accent": "#0D8798",
+    "background": "#FFFFFF",
+    "textPrimary": "#505051",
+    "link": "#0D8798"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Times New Roman",
+      "heading": "Boston Angel"
+    },
+    "fontStacks": {
+      "body": [
+        "Times New Roman"
+      ],
+      "heading": [
+        "Boston Angel"
+      ],
+      "paragraph": [
+        "Montserrat"
+      ]
+    },
+    "fontSizes": {
+      "h1": "66px",
+      "h2": "80px",
+      "body": "14px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "0px"
+  },
+  "components": {},
+  "images": {
+    "logo": null,
+    "favicon": "https://static.showit.co/200/-2g3k8dnQK2o-qHklZUwBA/133775/stamp_logo.png",
+    "ogImage": "File saved at: attached_assets/ogImage.jpg"
+  },
+  "__framework_hints": [],
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": -1,
+      "text": "N/A",
+      "reasoning": "LLM failed"
+    },
+    "secondary": {
+      "index": -1,
+      "text": "N/A",
+      "reasoning": "LLM failed"
+    },
+    "confidence": 0
+  },
+  "confidence": {
+    "buttons": 0,
+    "colors": 0,
+    "overall": 0
+  }
+}

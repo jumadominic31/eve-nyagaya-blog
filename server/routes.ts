@@ -31,6 +31,46 @@ async function seedDatabase() {
       imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800",
       category: "Business"
     });
+    await storage.createPost({
+      title: "Taking Control of Your Personal Finances",
+      slug: "personal-finance-basics",
+      content: "Financial freedom starts with understanding where your money goes and making intentional choices about how you spend, save, and invest. Whether you're just starting out or looking to level up your money game, these principles will serve you well.\n\nFirst, track everything. For one month, write down every single purchase. This awareness alone can be transformative. You'll quickly see patterns—maybe that daily coffee run or subscription you forgot about.\n\nNext, build your emergency fund. Aim for three to six months of expenses in a high-yield savings account. This cushion gives you peace of mind and prevents you from going into debt when life happens.\n\nThen, tackle any high-interest debt aggressively. Credit card balances are wealth killers. Pay more than the minimum and consider the avalanche method—targeting your highest interest rate first.\n\nFinally, start investing early. Even small amounts compound over time. Take advantage of employer 401(k) matches and consider index funds for a simple, diversified approach. Your future self will thank you.",
+      summary: "Practical steps to take control of your money and build lasting financial freedom.",
+      imageUrl: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800",
+      category: "Finance"
+    });
+    await storage.createPost({
+      title: "Deepening Your Relationship with God",
+      slug: "relationship-with-god",
+      content: "In the busyness of life, it's easy to let our spiritual lives take a backseat. But nurturing your relationship with God is the foundation for everything else—your peace, your purpose, and your ability to pour into others.\n\nStart with showing up. Consistency matters more than perfection. Whether it's five minutes or an hour, carve out daily time to be still with God. Morning works best for many, before the demands of the day crowd in.\n\nRead Scripture with intention. Don't just check a box—ask God to speak to you through His Word. Journal what stands out and how it applies to your life right now.\n\nPrayer is a conversation, not a performance. Talk to God like you would a trusted friend. Share your worries, your gratitude, your questions. Then pause and listen. He speaks through stillness, through others, through circumstances.\n\nFind community. We weren't meant to walk this journey alone. A small group, a church family, or even one trusted friend who shares your faith can provide encouragement and accountability.\n\nRemember, God isn't looking for perfect—He's looking for present. Show up as you are, and watch how He transforms your heart.",
+      summary: "Practical ways to grow closer to God and strengthen your faith journey.",
+      imageUrl: "https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=800",
+      category: "Faith"
+    });
+    await storage.createPost({
+      title: "Making New Year Resolutions That Actually Stick",
+      slug: "new-year-resolutions",
+      content: "Every January, we're filled with hope and ambition. By February, most resolutions are forgotten. But it doesn't have to be that way. The secret isn't more willpower—it's a smarter approach.\n\nStart with your why. Don't just say 'I want to lose weight.' Ask yourself why. Maybe it's to have energy to play with your kids, or to feel confident in your own skin. That deeper motivation will carry you through the hard days.\n\nMake it specific and measurable. 'Get healthier' is vague. 'Walk 30 minutes every weekday' is clear. You know exactly what success looks like.\n\nStart ridiculously small. Want to read more? Commit to one page a day. Want to exercise? Start with five minutes. Small wins build momentum and prove to yourself that you can do this.\n\nBuild systems, not just goals. Instead of focusing only on the outcome, design your environment for success. Put your running shoes by the bed. Keep healthy snacks visible. Remove friction from the behaviors you want.\n\nTrack your progress and celebrate wins. A simple habit tracker can be incredibly motivating. And don't forget to acknowledge how far you've come—progress, not perfection, is the goal.\n\nFinally, plan for setbacks. You will have off days. That's human. The difference between those who succeed and those who don't is getting back up. One bad day doesn't erase your progress.",
+      summary: "A fresh approach to setting goals that actually lead to lasting change.",
+      imageUrl: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800",
+      category: "Personal Growth"
+    });
+    await storage.createPost({
+      title: "Finding Your Fitness Rhythm",
+      slug: "fitness-journey",
+      content: "Fitness isn't about punishment or perfection—it's about honoring your body and building strength for the life you want to live. Whether you're starting from zero or getting back on track, here's how to make movement a sustainable part of your life.\n\nFind what you actually enjoy. If you hate running, don't run. Try dance, hiking, swimming, yoga, strength training, or group fitness classes. When exercise feels like play, you'll stick with it.\n\nSchedule it like an appointment. Look at your calendar and block time for movement. Treat it as non-negotiable as a doctor's appointment. Morning workouts work well for many because they're done before life gets in the way.\n\nStart where you are. You don't need to go from couch to marathon. Begin with what feels manageable—even 10 minutes counts. Gradually increase duration and intensity as you build the habit.\n\nMix it up. Your body adapts, and variety keeps things interesting. Alternate between cardio, strength, and flexibility work. This also prevents overuse injuries and keeps you engaged.\n\nFuel your body well. Exercise and nutrition go hand in hand. Focus on whole foods, adequate protein, and staying hydrated. Notice how what you eat affects how you feel and perform.\n\nRest is part of the plan. Your body gets stronger during recovery, not during the workout itself. Build in rest days and prioritize sleep. Pushing too hard leads to burnout and injury.",
+      summary: "How to build a sustainable exercise routine that fits your life and brings you joy.",
+      imageUrl: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800",
+      category: "Health"
+    });
+    await storage.createPost({
+      title: "The Beautiful Chaos of Raising a Young Family",
+      slug: "raising-young-family",
+      content: "The days are long but the years are short—and when you're in the thick of raising little ones, both truths feel very real. Here's what I've learned about surviving and thriving during this demanding, beautiful season.\n\nLower your expectations, raise your grace. Your house will be messy. You will lose your patience. Some days, survival mode is the only mode. That's okay. You're doing harder work than you realize.\n\nPrioritize connection over perfection. Your kids don't need Pinterest-perfect birthday parties or organic everything. They need you—present, attentive, and engaged. Put down the phone and get on the floor.\n\nProtect your marriage. It's easy to become roommates who co-manage children. But your relationship is the foundation of your family. Regular date nights—even at-home ones—keep that connection strong.\n\nBuild a village. Parenting wasn't meant to be done in isolation. Lean on family, friends, neighbors, and community. Accept help when it's offered. Offer help when you can.\n\nEstablish rhythms, not rigid routines. Predictable patterns—meal times, bedtimes, weekly traditions—create security for kids. But hold them loosely. Flexibility is essential when life with little ones is inherently unpredictable.\n\nTake care of yourself. You can't pour from an empty cup. Guard small pockets of time for things that replenish you—a morning coffee in silence, exercise, time with friends.\n\nDocument the moments. Take photos, write notes, capture the little things. You think you'll remember, but the details fade. These recordings become treasures.\n\nThis season is temporary. When you're exhausted and touched out and wondering if you're doing enough, remember: these years will pass faster than you think. You're building something beautiful, one ordinary day at a time.",
+      summary: "Encouragement and wisdom for parents navigating the rewarding challenges of young children.",
+      imageUrl: "https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?w=800",
+      category: "Family"
+    });
   }
 
   const existingPhotos = await storage.getPhotos();
