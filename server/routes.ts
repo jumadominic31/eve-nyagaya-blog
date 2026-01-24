@@ -66,7 +66,8 @@ export async function registerRoutes(
   });
 
   app.get(api.posts.get.path, async (req, res) => {
-    const post = await storage.getPost(req.params.slug);
+    const slug = req.params.slug as string;
+    const post = await storage.getPost(slug);
     if (!post) {
       return res.status(404).json({ message: "Post not found" });
     }
@@ -91,7 +92,7 @@ export async function registerRoutes(
 
   app.patch(api.posts.update.path, async (req, res) => {
     try {
-      const id = parseInt(req.params.id);
+      const id = parseInt(req.params.id as string);
       const input = api.posts.update.input.parse(req.body);
       const post = await storage.updatePost(id, input);
       if (!post) {
@@ -110,7 +111,7 @@ export async function registerRoutes(
   });
 
   app.delete(api.posts.delete.path, async (req, res) => {
-    const id = parseInt(req.params.id);
+    const id = parseInt(req.params.id as string);
     await storage.deletePost(id);
     res.status(204).send();
   });
@@ -137,7 +138,7 @@ export async function registerRoutes(
   });
 
   app.delete(api.photos.delete.path, async (req, res) => {
-    const id = parseInt(req.params.id);
+    const id = parseInt(req.params.id as string);
     await storage.deletePhoto(id);
     res.status(204).send();
   });

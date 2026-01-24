@@ -1,12 +1,19 @@
-# replit.md
+# Blog & Podcast Website
 
 ## Overview
 
-This is a full-stack blog and podcast platform built with React, Express, and PostgreSQL. The application features a content management system for blog posts and photo galleries, with a clean, modern UI designed for content creators and personal branding.
+A clean, professional blog and podcast platform built with React, Express, and PostgreSQL. Features a content management system for blog posts and photo galleries with a warm, sophisticated design inspired by personal branding websites.
+
+**Current State:** Fully functional with:
+- Public pages: Home, Podcast (blog listing), Post detail, Photo gallery
+- Admin dashboard for creating/editing/deleting posts and photos
+- PostgreSQL database for persistent storage
+- Responsive, clean design with light/dark mode support
 
 ## User Preferences
 
-Preferred communication style: Simple, everyday language.
+- Preferred communication style: Simple, everyday language
+- Design style: Clean, feminine professional, typography-focused
 
 ## System Architecture
 
@@ -14,11 +21,16 @@ Preferred communication style: Simple, everyday language.
 - **Framework**: React 18 with TypeScript
 - **Routing**: Wouter for lightweight client-side routing
 - **State Management**: TanStack React Query for server state and caching
-- **Styling**: Tailwind CSS with shadcn/ui component library (New York style)
+- **Styling**: Tailwind CSS with shadcn/ui component library
 - **Form Handling**: React Hook Form with Zod validation
 - **Build Tool**: Vite with HMR support
 
-The frontend follows a pages-based architecture with reusable components. Pages are located in `client/src/pages/` and shared UI components in `client/src/components/ui/`. Custom hooks handle data fetching and business logic.
+**Pages:**
+- `/` - Home page with hero section and featured posts
+- `/podcast` - Blog/podcast listing page
+- `/podcast/:slug` - Individual post detail page
+- `/photos` - Photo gallery page
+- `/admin` - Admin dashboard (Posts and Photos management)
 
 ### Backend Architecture
 - **Framework**: Express 5 on Node.js
@@ -26,44 +38,38 @@ The frontend follows a pages-based architecture with reusable components. Pages 
 - **API Design**: RESTful endpoints under `/api/` prefix
 - **Schema Validation**: Zod with drizzle-zod for type-safe schemas
 
-The server uses a storage abstraction pattern (`IStorage` interface in `server/storage.ts`) for database operations, making it easy to swap implementations. Routes are defined in `server/routes.ts` with corresponding type definitions in `shared/routes.ts`.
+**API Endpoints:**
+- `GET /api/posts` - List all posts
+- `GET /api/posts/:slug` - Get single post by slug
+- `POST /api/posts` - Create new post
+- `PATCH /api/posts/:id` - Update post
+- `DELETE /api/posts/:id` - Delete post
+- `GET /api/photos` - List all photos
+- `POST /api/photos` - Add new photo
+- `DELETE /api/photos/:id` - Delete photo
 
 ### Data Layer
 - **Database**: PostgreSQL with connection pooling via `pg`
 - **Schema Location**: `shared/schema.ts` contains all table definitions
-- **Migrations**: Drizzle Kit manages schema migrations in `./migrations`
 
-Current database entities:
-- `posts`: Blog/podcast posts with title, slug, content, summary, image, and category
-- `photos`: Photo gallery items with URL and caption
-
-### Shared Code
-The `shared/` directory contains code used by both frontend and backend:
-- `schema.ts`: Database table definitions and Zod insert schemas
-- `routes.ts`: API route definitions with request/response types
+**Database Tables:**
+- `posts`: Blog/podcast posts with title, slug, content, summary, imageUrl, category
+- `photos`: Photo gallery items with url and caption
 
 ### Development vs Production
 - **Development**: Vite dev server with HMR, served through Express middleware
 - **Production**: Static files built to `dist/public`, server bundled with esbuild
 
-## External Dependencies
-
-### Database
-- PostgreSQL (required, connection via `DATABASE_URL` environment variable)
-- Drizzle ORM for type-safe database queries
-- `connect-pg-simple` for session storage capability
-
-### UI Libraries
-- shadcn/ui components built on Radix UI primitives
-- Tailwind CSS for styling
-- Lucide React for icons
-- date-fns for date formatting
-
-### Build & Development
-- Vite for frontend bundling
-- esbuild for server bundling
-- TypeScript for type safety throughout
-
-### Key Environment Variables
+## Key Environment Variables
 - `DATABASE_URL`: PostgreSQL connection string (required)
 - `NODE_ENV`: Controls development vs production behavior
+
+## Export Instructions
+
+To run this on your own server:
+
+1. Install dependencies: `npm install`
+2. Set `DATABASE_URL` environment variable to your PostgreSQL connection string
+3. Push database schema: `npm run db:push`
+4. Build for production: `npm run build`
+5. Start server: `npm start`
