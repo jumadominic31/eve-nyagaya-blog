@@ -10,7 +10,7 @@ export function Navbar() {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <Link href="/">
-            <span className="font-serif text-2xl font-semibold tracking-tight cursor-pointer" data-testid="link-logo">
+            <span className="font-serif text-2xl font-semibold tracking-tight cursor-pointer text-primary" data-testid="link-logo">
               The Blog
             </span>
           </Link>
