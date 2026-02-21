@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Mic, Image, Settings } from "lucide-react";
+import { PenLine, Image, Settings } from "lucide-react";
 
 export function Navbar() {
   const [location] = useLocation();
@@ -21,8 +21,8 @@ export function Navbar() {
                 size="sm"
                 data-testid="link-podcast"
               >
-                <Mic className="w-4 h-4 mr-2" />
-                Podcast
+                <PenLine className="w-4 h-4 mr-2" />
+                Blog
               </Button>
             </Link>
             <Link href="/photos">
