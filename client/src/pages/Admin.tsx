@@ -13,8 +13,80 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Trash2, Plus, FileText, Image } from "lucide-react";
+import { Trash2, Plus, FileText, Image, Upload } from "lucide-react";
+import { useUpload } from "@/hooks/use-upload";
 import type { Post, Photo } from "@shared/schema";
+
+function PhotoUploadCard({ onPhotoAdded }: { onPhotoAdded: () => void }) {
+  const { toast } = useToast();
+  const [caption, setCaption] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
+  const { uploadFile } = useUpload({
+    onSuccess: async (response) => {
+      const photoData = {
+        url: response.objectPath,
+        caption: caption || undefined,
+      };
+      await apiRequest("POST", "/api/photos", photoData);
+      onPhotoAdded();
+      setCaption("");
+      setIsUploading(false);
+      toast({ title: "Photo uploaded successfully" });
+    },
+    onError: (error) => {
+      setIsUploading(false);
+      toast({ title: "Failed to upload photo", variant: "destructive" });
+    },
+  });
+
+  const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setIsUploading(true);
+    await uploadFile(file);
+    e.target.value = "";
+  };
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-lg">Upload Photo</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <div>
+          <label className="text-sm font-medium">Caption (optional)</label>
+          <Input
+            value={caption}
+            onChange={(e) => setCaption(e.target.value)}
+            placeholder="Photo caption..."
+            className="mt-1.5"
+            data-testid="input-photo-caption"
+          />
+        </div>
+        <div>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleFileSelect}
+            className="hidden"
+            id="photo-upload"
+            data-testid="input-photo-file"
+          />
+          <Button
+            asChild
+            disabled={isUploading}
+            data-testid="button-upload-photo"
+          >
+            <label htmlFor="photo-upload" className="cursor-pointer">
+              <Upload className="w-4 h-4 mr-2" />
+              {isUploading ? "Uploading..." : "Choose Photo"}
+            </label>
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
 
 const postSchema = z.object({
   title: z.string().min(1, "Title is required"),
@@ -342,47 +414,9 @@ export default function Admin() {
           </TabsContent>
 
           <TabsContent value="photos" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Add Photo</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Form {...photoForm}>
-                  <form onSubmit={photoForm.handleSubmit((data) => createPhoto.mutate(data))} className="space-y-4">
-                    <FormField
-                      control={photoForm.control}
-                      name="url"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Image URL</FormLabel>
-                          <FormControl>
-                            <Input {...field} placeholder="https://..." data-testid="input-photo-url" />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={photoForm.control}
-                      name="caption"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Caption (optional)</FormLabel>
-                          <FormControl>
-                            <Input {...field} placeholder="Photo caption..." data-testid="input-photo-caption" />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <Button type="submit" disabled={createPhoto.isPending} data-testid="button-add-photo">
-                      <Plus className="w-4 h-4 mr-2" />
-                      {createPhoto.isPending ? "Adding..." : "Add Photo"}
-                    </Button>
-                  </form>
-                </Form>
-              </CardContent>
-            </Card>
+            <PhotoUploadCard
+              onPhotoAdded={() => queryClient.invalidateQueries({ queryKey: ["/api/photos"] })}
+            />
 
             <Card>
               <CardHeader>
