@@ -11,14 +11,16 @@ export default function Podcast() {
     queryKey: ["/api/posts"],
   });
 
+  const blogPosts = posts?.filter((post) => post.category !== "Devotional");
+
   return (
     <div className="min-h-screen py-12 px-6">
       <div className="container mx-auto max-w-4xl">
         <div className="text-center mb-12">
-          <h1 className="font-serif text-4xl font-semibold tracking-tight mb-4" data-testid="text-podcast-title">
-            The Podcast
+          <h1 className="font-serif text-4xl font-semibold tracking-tight mb-4" data-testid="text-blog-title">
+            Blog
           </h1>
-          <p className="text-muted-foreground max-w-lg mx-auto" data-testid="text-podcast-subtitle">
+          <p className="text-muted-foreground max-w-lg mx-auto" data-testid="text-blog-subtitle">
             Join me for conversations about building a business you love, creating content that matters, and designing a life that feels like you.
           </p>
         </div>
@@ -29,10 +31,10 @@ export default function Podcast() {
               <Skeleton key={i} className="h-48 rounded-lg" />
             ))}
           </div>
-        ) : posts && posts.length > 0 ? (
+        ) : blogPosts && blogPosts.length > 0 ? (
           <div className="space-y-6">
-            {posts.map((post) => (
-              <Link key={post.id} href={`/podcast/${post.slug}`}>
+            {blogPosts.map((post) => (
+              <Link key={post.id} href={`/blog/${post.slug}`}>
                 <Card className="overflow-hidden hover-elevate cursor-pointer mb-6" data-testid={`card-episode-${post.id}`}>
                   <div className="md:flex">
                     {post.imageUrl && (

@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Navbar } from "@/components/Navbar";
 import Home from "@/pages/Home";
 import Podcast from "@/pages/Podcast";
+import Devotionals from "@/pages/Devotionals";
 import PostDetail from "@/pages/PostDetail";
 import Photos from "@/pages/Photos";
 import Admin from "@/pages/Admin";
@@ -15,6 +16,10 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/devotionals" component={Devotionals} />
+      <Route path="/devotionals/:slug" component={PostDetail} />
+      <Route path="/blog" component={Podcast} />
+      <Route path="/blog/:slug" component={PostDetail} />
       <Route path="/podcast" component={Podcast} />
       <Route path="/podcast/:slug" component={PostDetail} />
       <Route path="/photos" component={Photos} />

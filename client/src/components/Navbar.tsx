@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { PenLine, Image, Settings } from "lucide-react";
+import { BookHeart, PenLine, Image, Settings } from "lucide-react";
 
 export function Navbar() {
   const [location] = useLocation();
@@ -15,11 +15,21 @@ export function Navbar() {
             </span>
           </Link>
           <div className="flex items-center gap-1">
-            <Link href="/podcast">
+            <Link href="/devotionals">
               <Button
-                variant={location === "/podcast" ? "secondary" : "ghost"}
+                variant={location.startsWith("/devotionals") ? "secondary" : "ghost"}
                 size="sm"
-                data-testid="link-podcast"
+                data-testid="link-devotionals"
+              >
+                <BookHeart className="w-4 h-4 mr-2" />
+                Devotionals
+              </Button>
+            </Link>
+            <Link href="/blog">
+              <Button
+                variant={location.startsWith("/blog") ? "secondary" : "ghost"}
+                size="sm"
+                data-testid="link-blog"
               >
                 <PenLine className="w-4 h-4 mr-2" />
                 Blog

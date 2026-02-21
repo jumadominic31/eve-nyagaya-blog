@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useParams, Link } from "wouter";
+import { useParams, Link, useRoute } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -9,7 +9,11 @@ import type { Post } from "@shared/schema";
 
 export default function PostDetail() {
   const { slug } = useParams<{ slug: string }>();
-  
+  const [isDevotional] = useRoute("/devotionals/:slug");
+
+  const backLink = isDevotional ? "/devotionals" : "/blog";
+  const backLabel = isDevotional ? "Back to Devotionals" : "Back to Blog";
+
   const { data: post, isLoading, error } = useQuery<Post>({
     queryKey: ["/api/posts", slug],
     enabled: !!slug,
@@ -41,10 +45,10 @@ export default function PostDetail() {
           <p className="text-muted-foreground mb-6">
             The post you're looking for doesn't exist or has been removed.
           </p>
-          <Link href="/podcast">
-            <Button data-testid="button-back-to-podcast">
+          <Link href={backLink}>
+            <Button data-testid="button-back-to-list">
               <ArrowLeft className="mr-2 w-4 h-4" />
-              Back to Podcast
+              {backLabel}
             </Button>
           </Link>
         </div>
@@ -55,10 +59,10 @@ export default function PostDetail() {
   return (
     <article className="min-h-screen py-12 px-6">
       <div className="container mx-auto max-w-3xl">
-        <Link href="/podcast">
+        <Link href={backLink}>
           <Button variant="ghost" size="sm" className="mb-8" data-testid="button-back">
             <ArrowLeft className="mr-2 w-4 h-4" />
-            Back to Podcast
+            {backLabel}
           </Button>
         </Link>
 

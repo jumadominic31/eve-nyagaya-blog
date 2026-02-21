@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { format } from "date-fns";
-import { ArrowRight, Mic, Heart, Sparkles } from "lucide-react";
+import { ArrowRight, PenLine, Heart, Sparkles } from "lucide-react";
 import type { Post } from "@shared/schema";
 
 export default function Home() {
@@ -31,10 +31,10 @@ export default function Home() {
             Join me as I share insights on faith, family, personal growth, and living with intention. This is a space for honest conversations and encouragement.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/podcast">
+            <Link href="/blog">
               <Button size="lg" data-testid="button-explore">
-                <Mic className="mr-2 w-4 h-4" />
-                Listen to the Podcast
+                <PenLine className="mr-2 w-4 h-4" />
+                Read the Blog
               </Button>
             </Link>
             <Link href="/photos">
@@ -105,10 +105,10 @@ export default function Home() {
               {featuredPost && (
                 <div className="mb-12">
                   <div className="text-center mb-8">
-                    <p className="text-accent font-medium tracking-widest uppercase text-sm mb-2">Latest Episode</p>
+                    <p className="text-accent font-medium tracking-widest uppercase text-sm mb-2">Latest Post</p>
                     <h2 className="font-serif text-3xl text-primary" data-testid="text-featured-heading">Featured</h2>
                   </div>
-                  <Link href={`/podcast/${featuredPost.slug}`}>
+                  <Link href={`/blog/${featuredPost.slug}`}>
                     <Card className="overflow-hidden hover-elevate cursor-pointer border-0 shadow-lg" data-testid={`card-featured-${featuredPost.id}`}>
                       <div className="md:flex">
                         {featuredPost.imageUrl && (
@@ -148,16 +148,16 @@ export default function Home() {
                       <p className="text-accent font-medium tracking-widest uppercase text-sm mb-1">Browse</p>
                       <h2 className="font-serif text-2xl text-primary" data-testid="text-recent-heading">Recent Posts</h2>
                     </div>
-                    <Link href="/podcast">
+                    <Link href="/blog">
                       <Button variant="outline" data-testid="button-view-all">
-                        View All Episodes
+                        View All Posts
                         <ArrowRight className="ml-2 w-4 h-4" />
                       </Button>
                     </Link>
                   </div>
                   <div className="grid md:grid-cols-3 gap-6">
                     {recentPosts.map((post) => (
-                      <Link key={post.id} href={`/podcast/${post.slug}`}>
+                      <Link key={post.id} href={`/blog/${post.slug}`}>
                         <Card className="overflow-hidden h-full hover-elevate cursor-pointer group" data-testid={`card-post-${post.id}`}>
                           {post.imageUrl && (
                             <div className="overflow-hidden">
@@ -200,11 +200,11 @@ export default function Home() {
             Let's Stay Connected
           </h2>
           <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-            New episodes drop every week. Don't miss out on encouragement, practical tips, and real conversations that matter.
+            New posts drop every week. Don't miss out on encouragement, practical tips, and real conversations that matter.
           </p>
-          <Link href="/podcast">
+          <Link href="/blog">
             <Button size="lg" variant="secondary" data-testid="button-subscribe">
-              Browse All Episodes
+              Browse All Posts
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </Link>

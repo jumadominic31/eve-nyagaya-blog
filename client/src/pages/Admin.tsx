@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Trash2, Plus, FileText, Image } from "lucide-react";
@@ -52,7 +53,7 @@ export default function Admin() {
       summary: "",
       content: "",
       imageUrl: "",
-      category: "Podcast",
+      category: "Blog",
     },
   });
 
@@ -145,7 +146,7 @@ export default function Admin() {
       summary: post.summary,
       content: post.content,
       imageUrl: post.imageUrl || "",
-      category: post.category || "Podcast",
+      category: post.category || "Blog",
     });
   };
 
@@ -223,9 +224,21 @@ export default function Admin() {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>Category</FormLabel>
-                          <FormControl>
-                            <Input {...field} placeholder="Podcast" data-testid="input-post-category" />
-                          </FormControl>
+                          <Select onValueChange={field.onChange} value={field.value || "Blog"}>
+                            <FormControl>
+                              <SelectTrigger data-testid="input-post-category">
+                                <SelectValue placeholder="Select category" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              <SelectItem value="Devotional">Devotional</SelectItem>
+                              <SelectItem value="Blog">Blog</SelectItem>
+                              <SelectItem value="Business">Business</SelectItem>
+                              <SelectItem value="Finance">Finance</SelectItem>
+                              <SelectItem value="Lifestyle">Lifestyle</SelectItem>
+                              <SelectItem value="Faith">Faith</SelectItem>
+                            </SelectContent>
+                          </Select>
                           <FormMessage />
                         </FormItem>
                       )}
