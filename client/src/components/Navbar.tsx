@@ -19,7 +19,7 @@ export function Navbar() {
                 Eve Nyagaya
               </span>
               <span className="text-2xl block" style={{ fontFamily: "'Dancing Script', cursive", color: '#D4AF37' }}>
-                This time with Jesus
+                This time with Jesus!
               </span>
             </div>
           </Link>

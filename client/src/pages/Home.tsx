@@ -33,7 +33,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/blog">
-              <Button size="lg" data-testid="button-explore">
+              <Button size="lg" className="bg-accent hover:bg-accent/90" data-testid="button-explore">
                 <PenLine className="mr-2 w-4 h-4" />
                 Read the Blog
               </Button>
