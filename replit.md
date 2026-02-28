@@ -34,6 +34,7 @@ A clean, professional blog and podcast platform built with React, Express, and P
 - `/photos` - Photo gallery page (hidden from nav)
 - `/subscribe` - Subscribe/contact page (name, email, phone)
 - `/admin` - Admin dashboard (hidden from nav, accessible via URL)
+- `/admin/subscribers` - Subscribers list (hidden, accessible via URL)
 
 ### Backend Architecture
 - **Framework**: Express 5 on Node.js
@@ -67,6 +68,10 @@ A clean, professional blog and podcast platform built with React, Express, and P
 ## Key Environment Variables
 - `DATABASE_URL`: PostgreSQL connection string (required)
 - `NODE_ENV`: Controls development vs production behavior
+
+## Future Enhancements
+- Email notification to evenyagaya@gmail.com when someone subscribes (needs SendGrid or Gmail app password setup)
+- Photos section can be re-enabled by uncommenting code in Navbar.tsx and Admin.tsx
 
 ## Export Instructions
 
