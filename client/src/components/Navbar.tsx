@@ -14,7 +14,7 @@ export function Navbar() {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <Link href="/">
-            <div className="cursor-pointer" data-testid="link-logo">
+            <div className="cursor-pointer text-center" data-testid="link-logo">
               <span className="font-serif text-2xl font-semibold tracking-tight text-primary-foreground block leading-tight">
                 Eve Nyagaya
               </span>
