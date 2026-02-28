@@ -17,6 +17,44 @@ import { Trash2, Plus, FileText, Image, Upload } from "lucide-react";
 import { useUpload } from "@/hooks/use-upload";
 import type { Post, Photo } from "@shared/schema";
 
+function PostImageUploadButton({ onUploaded }: { onUploaded: (path: string) => void }) {
+  const { toast } = useToast();
+  const { uploadFile, isUploading } = useUpload({
+    onSuccess: (response) => {
+      onUploaded(response.objectPath);
+      toast({ title: "Image uploaded" });
+    },
+    onError: () => {
+      toast({ title: "Failed to upload image", variant: "destructive" });
+    },
+  });
+
+  const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    await uploadFile(file);
+    e.target.value = "";
+  };
+
+  return (
+    <>
+      <input
+        type="file"
+        accept="image/*"
+        onChange={handleFileSelect}
+        className="hidden"
+        id="post-image-upload"
+        data-testid="input-post-image-file"
+      />
+      <Button type="button" variant="outline" size="icon" asChild disabled={isUploading} data-testid="button-upload-post-image">
+        <label htmlFor="post-image-upload" className="cursor-pointer">
+          <Upload className="w-4 h-4" />
+        </label>
+      </Button>
+    </>
+  );
+}
+
 function PhotoUploadCard({ onPhotoAdded }: { onPhotoAdded: () => void }) {
   const { toast } = useToast();
   const [caption, setCaption] = useState("");
@@ -321,10 +359,18 @@ export default function Admin() {
                       name="imageUrl"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Image URL (optional)</FormLabel>
-                          <FormControl>
-                            <Input {...field} placeholder="https://..." data-testid="input-post-image" />
-                          </FormControl>
+                          <FormLabel>Post Image (optional)</FormLabel>
+                          <div className="flex items-center gap-2">
+                            <FormControl>
+                              <Input {...field} placeholder="https://... or upload" className="flex-1" data-testid="input-post-image" />
+                            </FormControl>
+                            <PostImageUploadButton
+                              onUploaded={(path) => postForm.setValue("imageUrl", path)}
+                            />
+                          </div>
+                          {field.value && (
+                            <img src={field.value} alt="Preview" className="mt-2 rounded-md max-h-40 object-cover" data-testid="img-post-preview" />
+                          )}
                           <FormMessage />
                         </FormItem>
                       )}
