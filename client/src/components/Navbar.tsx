@@ -18,7 +18,7 @@ export function Navbar() {
               <span className="font-serif text-2xl font-semibold tracking-tight text-primary-foreground block leading-tight">
                 Eve Nyagaya
               </span>
-              <span className="text-xs italic text-primary-foreground/70">
+              <span className="text-sm text-primary-foreground/70" style={{ fontFamily: "'Dancing Script', cursive" }}>
                 This time with Jesus
               </span>
             </div>
