@@ -78,7 +78,7 @@ export default function Subscribe() {
             Subscribe
           </h1>
           <p className="text-muted-foreground" data-testid="text-subscribe-subtitle">
-            Stay connected and never miss an update. Enter your details below to join the community.
+            Stay connected and never miss a newsletter. Enter your details below to join the community.
           </p>
         </div>
 
