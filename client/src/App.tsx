@@ -10,6 +10,7 @@ import Devotionals from "@/pages/Devotionals";
 import GenAlpha from "@/pages/GenAlpha";
 import PostDetail from "@/pages/PostDetail";
 import Photos from "@/pages/Photos";
+import Subscribe from "@/pages/Subscribe";
 import Admin from "@/pages/Admin";
 import NotFound from "@/pages/not-found";
 
@@ -26,6 +27,7 @@ function Router() {
       <Route path="/podcast" component={Podcast} />
       <Route path="/podcast/:slug" component={PostDetail} />
       <Route path="/photos" component={Photos} />
+      <Route path="/subscribe" component={Subscribe} />
       <Route path="/admin" component={Admin} />
       <Route component={NotFound} />
     </Switch>

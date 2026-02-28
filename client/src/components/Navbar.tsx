@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { BookHeart, PenLine, Sparkles, Image, Settings } from "lucide-react";
+import { BookHeart, PenLine, Sparkles, Mail } from "lucide-react";
 
 export function Navbar() {
   const [location] = useLocation();
@@ -43,6 +43,16 @@ export function Navbar() {
               >
                 <Sparkles className="w-4 h-4 mr-2" />
                 Gen Alpha
+              </Button>
+            </Link>
+            <Link href="/subscribe">
+              <Button
+                variant={location === "/subscribe" ? "secondary" : "ghost"}
+                size="sm"
+                data-testid="link-subscribe"
+              >
+                <Mail className="w-4 h-4 mr-2" />
+                Subscribe
               </Button>
             </Link>
           </div>

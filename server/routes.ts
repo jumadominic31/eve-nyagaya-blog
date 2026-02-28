@@ -186,5 +186,24 @@ export async function registerRoutes(
     res.status(204).send();
   });
 
+  app.post(api.subscribers.create.path, async (req, res) => {
+    try {
+      const input = api.subscribers.create.input.parse(req.body);
+      const subscriber = await storage.createSubscriber(input);
+      res.status(201).json(subscriber);
+    } catch (err: any) {
+      if (err instanceof z.ZodError) {
+        return res.status(400).json({
+          message: err.errors[0].message,
+          field: err.errors[0].path.join('.'),
+        });
+      }
+      if (err?.code === "23505") {
+        return res.status(400).json({ message: "This email is already subscribed" });
+      }
+      throw err;
+    }
+  });
+
   return httpServer;
 }

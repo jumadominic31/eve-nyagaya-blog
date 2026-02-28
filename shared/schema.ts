@@ -20,10 +20,21 @@ export const photos = pgTable("photos", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
+export const subscribers = pgTable("subscribers", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  email: text("email").notNull().unique(),
+  phone: text("phone"),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
 export const insertPostSchema = createInsertSchema(posts).omit({ id: true, createdAt: true });
 export const insertPhotoSchema = createInsertSchema(photos).omit({ id: true, createdAt: true });
+export const insertSubscriberSchema = createInsertSchema(subscribers).omit({ id: true, createdAt: true });
 
 export type Post = typeof posts.$inferSelect;
 export type InsertPost = z.infer<typeof insertPostSchema>;
 export type Photo = typeof photos.$inferSelect;
 export type InsertPhoto = z.infer<typeof insertPhotoSchema>;
+export type Subscriber = typeof subscribers.$inferSelect;
+export type InsertSubscriber = z.infer<typeof insertSubscriberSchema>;

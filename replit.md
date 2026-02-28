@@ -31,8 +31,9 @@ A clean, professional blog and podcast platform built with React, Express, and P
 - `/blog/:slug` - Individual blog post detail page
 - `/gen-alpha` - Gen Alpha listing page (Gen_Alpha category posts)
 - `/gen-alpha/:slug` - Individual Gen Alpha post detail page
-- `/photos` - Photo gallery page
-- `/admin` - Admin dashboard (Posts and Photos management)
+- `/photos` - Photo gallery page (hidden from nav)
+- `/subscribe` - Subscribe/contact page (name, email, phone)
+- `/admin` - Admin dashboard (hidden from nav, accessible via URL)
 
 ### Backend Architecture
 - **Framework**: Express 5 on Node.js
@@ -49,6 +50,7 @@ A clean, professional blog and podcast platform built with React, Express, and P
 - `GET /api/photos` - List all photos
 - `POST /api/photos` - Add new photo
 - `DELETE /api/photos/:id` - Delete photo
+- `POST /api/subscribers` - Subscribe (name, email, phone)
 
 ### Data Layer
 - **Database**: PostgreSQL with connection pooling via `pg`
