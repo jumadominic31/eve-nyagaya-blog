@@ -10,9 +10,10 @@ import type { Post } from "@shared/schema";
 export default function PostDetail() {
   const { slug } = useParams<{ slug: string }>();
   const [isDevotional] = useRoute("/devotionals/:slug");
+  const [isGenAlpha] = useRoute("/gen-alpha/:slug");
 
-  const backLink = isDevotional ? "/devotionals" : "/blog";
-  const backLabel = isDevotional ? "Back to Devotionals" : "Back to Blog";
+  const backLink = isDevotional ? "/devotionals" : isGenAlpha ? "/gen-alpha" : "/blog";
+  const backLabel = isDevotional ? "Back to Devotionals" : isGenAlpha ? "Back to Gen Alpha" : "Back to Blog";
 
   const { data: post, isLoading, error } = useQuery<Post>({
     queryKey: ["/api/posts", slug],

@@ -27,8 +27,10 @@ A clean, professional blog and podcast platform built with React, Express, and P
 
 **Pages:**
 - `/` - Home page with hero section and featured posts
-- `/podcast` - Blog/podcast listing page
-- `/podcast/:slug` - Individual post detail page
+- `/blog` - Blog listing page (excludes Devotional and Gen_Alpha posts)
+- `/blog/:slug` - Individual blog post detail page
+- `/gen-alpha` - Gen Alpha listing page (Gen_Alpha category posts)
+- `/gen-alpha/:slug` - Individual Gen Alpha post detail page
 - `/photos` - Photo gallery page
 - `/admin` - Admin dashboard (Posts and Photos management)
 

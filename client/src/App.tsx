@@ -7,6 +7,7 @@ import { Navbar } from "@/components/Navbar";
 import Home from "@/pages/Home";
 import Podcast from "@/pages/Podcast";
 import Devotionals from "@/pages/Devotionals";
+import GenAlpha from "@/pages/GenAlpha";
 import PostDetail from "@/pages/PostDetail";
 import Photos from "@/pages/Photos";
 import Admin from "@/pages/Admin";
@@ -20,6 +21,8 @@ function Router() {
       <Route path="/devotionals/:slug" component={PostDetail} />
       <Route path="/blog" component={Podcast} />
       <Route path="/blog/:slug" component={PostDetail} />
+      <Route path="/gen-alpha" component={GenAlpha} />
+      <Route path="/gen-alpha/:slug" component={PostDetail} />
       <Route path="/podcast" component={Podcast} />
       <Route path="/podcast/:slug" component={PostDetail} />
       <Route path="/photos" component={Photos} />

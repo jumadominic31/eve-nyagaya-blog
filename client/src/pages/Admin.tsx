@@ -305,6 +305,7 @@ export default function Admin() {
                             <SelectContent>
                               <SelectItem value="Devotional">Devotional</SelectItem>
                               <SelectItem value="Blog">Blog</SelectItem>
+                              <SelectItem value="Gen_Alpha">Gen Alpha</SelectItem>
                               <SelectItem value="Business">Business</SelectItem>
                               <SelectItem value="Finance">Finance</SelectItem>
                               <SelectItem value="Lifestyle">Lifestyle</SelectItem>

@@ -28,7 +28,7 @@ export default function Home() {
             Stories, Faith & Inspiration
           </h1>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-8" data-testid="text-hero-subtitle">
-            Join me as I share insights on faith, family, personal growth, and living with intention. This is a space for honest conversations and encouragement.
+            Join me as I share insights on my personal faith journey, marriage, family, personal growth, and living with intention. This is a space for honest conversations and encouragement.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/blog">

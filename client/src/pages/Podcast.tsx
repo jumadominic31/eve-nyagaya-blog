@@ -11,7 +11,7 @@ export default function Podcast() {
     queryKey: ["/api/posts"],
   });
 
-  const blogPosts = posts?.filter((post) => post.category !== "Devotional");
+  const blogPosts = posts?.filter((post) => post.category !== "Devotional" && post.category !== "Gen_Alpha");
 
   return (
     <div className="min-h-screen py-12 px-6">
