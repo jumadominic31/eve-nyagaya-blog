@@ -12,6 +12,7 @@ import PostDetail from "@/pages/PostDetail";
 import Photos from "@/pages/Photos";
 import Subscribe from "@/pages/Subscribe";
 import Admin from "@/pages/Admin";
+import Subscribers from "@/pages/Subscribers";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -29,6 +30,7 @@ function Router() {
       <Route path="/photos" component={Photos} />
       <Route path="/subscribe" component={Subscribe} />
       <Route path="/admin" component={Admin} />
+      <Route path="/admin/subscribers" component={Subscribers} />
       <Route component={NotFound} />
     </Switch>
   );

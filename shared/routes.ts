@@ -86,6 +86,13 @@ export const api = {
     },
   },
   subscribers: {
+    list: {
+      method: 'GET' as const,
+      path: '/api/subscribers',
+      responses: {
+        200: z.array(z.custom<typeof subscribers.$inferSelect>()),
+      },
+    },
     create: {
       method: 'POST' as const,
       path: '/api/subscribers',

@@ -75,7 +75,7 @@ export default function Subscribe() {
       <div className="container mx-auto max-w-md">
         <div className="text-center mb-8">
           <h1 className="font-serif text-4xl font-semibold tracking-tight mb-4" data-testid="text-subscribe-title">
-            Subscribe
+            Get in Touch
           </h1>
           <p className="text-muted-foreground" data-testid="text-subscribe-subtitle">
             Stay connected and never miss a newsletter. Enter your details below to join the community.
@@ -86,7 +86,7 @@ export default function Subscribe() {
           <CardHeader>
             <CardTitle className="text-lg flex items-center gap-2">
               <Mail className="w-5 h-5" />
-              Get in Touch
+              Get Latest Updates
             </CardTitle>
           </CardHeader>
           <CardContent>

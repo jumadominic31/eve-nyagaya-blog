@@ -186,6 +186,11 @@ export async function registerRoutes(
     res.status(204).send();
   });
 
+  app.get(api.subscribers.list.path, async (req, res) => {
+    const subscribers = await storage.getSubscribers();
+    res.json(subscribers);
+  });
+
   const subscriberRateLimit = new Map<string, number[]>();
 
   app.post(api.subscribers.create.path, async (req, res) => {
