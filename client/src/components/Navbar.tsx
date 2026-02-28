@@ -45,16 +45,6 @@ export function Navbar() {
                 Gen Alpha
               </Button>
             </Link>
-            <Link href="/photos">
-              <Button
-                variant={location === "/photos" ? "secondary" : "ghost"}
-                size="sm"
-                data-testid="link-photos"
-              >
-                <Image className="w-4 h-4 mr-2" />
-                Photos
-              </Button>
-            </Link>
             <Link href="/admin">
               <Button
                 variant={location.startsWith("/admin") ? "secondary" : "ghost"}

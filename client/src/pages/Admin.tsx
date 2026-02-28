@@ -248,10 +248,10 @@ export default function Admin() {
               <FileText className="w-4 h-4 mr-2" />
               Posts
             </TabsTrigger>
-            <TabsTrigger value="photos" data-testid="tab-photos">
+            {/* <TabsTrigger value="photos" data-testid="tab-photos">
               <Image className="w-4 h-4 mr-2" />
               Photos
-            </TabsTrigger>
+            </TabsTrigger> */}
           </TabsList>
 
           <TabsContent value="posts" className="space-y-6">
@@ -414,6 +414,7 @@ export default function Admin() {
             </Card>
           </TabsContent>
 
+          {/* Photos tab hidden - uncomment to re-enable
           <TabsContent value="photos" className="space-y-6">
             <PhotoUploadCard
               onPhotoAdded={() => queryClient.invalidateQueries({ queryKey: ["/api/photos"] })}
@@ -463,6 +464,7 @@ export default function Admin() {
               </CardContent>
             </Card>
           </TabsContent>
+          */}
         </Tabs>
       </div>
     </div>
