@@ -45,16 +45,6 @@ export function Navbar() {
                 Gen Alpha
               </Button>
             </Link>
-            <Link href="/admin">
-              <Button
-                variant={location.startsWith("/admin") ? "secondary" : "ghost"}
-                size="sm"
-                data-testid="link-admin"
-              >
-                <Settings className="w-4 h-4 mr-2" />
-                Admin
-              </Button>
-            </Link>
           </div>
         </div>
       </div>
