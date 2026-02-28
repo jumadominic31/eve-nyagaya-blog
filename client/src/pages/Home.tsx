@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { format } from "date-fns";
 import { ArrowRight, PenLine, Heart, Sparkles } from "lucide-react";
 import type { Post } from "@shared/schema";
+import evePhoto from "@assets/Eve_photo_1772268518219.jpeg";
 
 export default function Home() {
   const { data: posts, isLoading } = useQuery<Post[]>({
@@ -25,10 +26,10 @@ export default function Home() {
             Welcome
           </p>
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 text-primary" data-testid="text-hero-title">
-            Stories, Faith & Inspiration
+            Faith, Stories & Inspiration
           </h1>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-8" data-testid="text-hero-subtitle">
-            Join me as I share insights on my personal faith journey, marriage, family, personal growth, and living with intention. This is a space for honest conversations and encouragement.
+            Join me as I share insights on my personal faith journey, marriage, family, personal growth, living with intention and encouragement.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/blog">
@@ -78,8 +79,8 @@ export default function Home() {
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg blur-xl opacity-50" />
                 <img
-                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600"
-                  alt="About"
+                  src={evePhoto}
+                  alt="Eve Nyagaya"
                   className="relative rounded-lg shadow-lg w-full object-cover aspect-[4/5]"
                   data-testid="img-about"
                 />
