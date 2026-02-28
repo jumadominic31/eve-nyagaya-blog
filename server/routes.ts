@@ -186,9 +186,27 @@ export async function registerRoutes(
     res.status(204).send();
   });
 
+  const subscriberRateLimit = new Map<string, number[]>();
+
   app.post(api.subscribers.create.path, async (req, res) => {
     try {
-      const input = api.subscribers.create.input.parse(req.body);
+      if (req.body.website) {
+        return res.status(201).json({ id: 0, name: "", email: "", phone: null, createdAt: new Date() });
+      }
+
+      const ip = req.ip || "unknown";
+      const now = Date.now();
+      const windowMs = 15 * 60 * 1000;
+      const maxAttempts = 5;
+      const attempts = (subscriberRateLimit.get(ip) || []).filter(t => now - t < windowMs);
+      if (attempts.length >= maxAttempts) {
+        return res.status(429).json({ message: "Too many attempts. Please try again later." });
+      }
+      attempts.push(now);
+      subscriberRateLimit.set(ip, attempts);
+
+      const { website, ...subscriberData } = req.body;
+      const input = api.subscribers.create.input.parse(subscriberData);
       const subscriber = await storage.createSubscriber(input);
       res.status(201).json(subscriber);
     } catch (err: any) {

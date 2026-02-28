@@ -15,6 +15,7 @@ const subscribeSchema = z.object({
   name: z.string().min(1, "Name is required"),
   email: z.string().email("Please enter a valid email address"),
   phone: z.string().optional(),
+  website: z.string().optional(),
 });
 
 type SubscribeForm = z.infer<typeof subscribeSchema>;
@@ -29,6 +30,7 @@ export default function Subscribe() {
       name: "",
       email: "",
       phone: "",
+      website: "",
     },
   });
 
@@ -129,6 +131,16 @@ export default function Subscribe() {
                     </FormItem>
                   )}
                 />
+                <div className="absolute opacity-0 top-0 left-0 h-0 w-0 -z-10 overflow-hidden" aria-hidden="true" tabIndex={-1}>
+                  <label htmlFor="website">Website</label>
+                  <input
+                    {...form.register("website")}
+                    type="text"
+                    id="website"
+                    autoComplete="off"
+                    tabIndex={-1}
+                  />
+                </div>
                 <Button type="submit" className="w-full" disabled={subscribe.isPending} data-testid="button-subscribe-submit">
                   {subscribe.isPending ? "Subscribing..." : "Subscribe"}
                 </Button>
