@@ -62,7 +62,7 @@ export default function Home() {
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 Welcome to the blog!
               </p>
-              <div className="flex items-center gap-6 text-sm">
+              <div className="flex items-center gap-6 text-sm mb-6">
                 <div className="flex items-center gap-2 text-accent">
                   <Heart className="w-4 h-4" />
                   <span>Faith-Centered</span>
@@ -72,6 +72,12 @@ export default function Home() {
                   <span>Practical Wisdom</span>
                 </div>
               </div>
+              <Link href="/about">
+                <Button variant="outline" data-testid="button-about-link">
+                  Learn More About Me
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
             </div>
             <div className="order-1 md:order-2">
               <div className="relative">
