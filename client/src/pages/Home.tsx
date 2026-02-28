@@ -199,7 +199,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 px-6 bg-primary text-primary-foreground">
+      <section className="py-16 px-6 bg-accent text-primary-foreground">
         <div className="container mx-auto max-w-3xl text-center">
           <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-4" data-testid="text-cta-heading">
             Let's Stay Connected
