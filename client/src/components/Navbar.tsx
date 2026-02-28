@@ -62,7 +62,7 @@ export function Navbar() {
                 data-testid="link-subscribe"
               >
                 <Mail className="w-4 h-4 mr-2" />
-                Subscribe
+                Let's Connect
               </Button>
             </Link>
           </div>

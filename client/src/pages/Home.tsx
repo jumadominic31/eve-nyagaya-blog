@@ -22,10 +22,10 @@ export default function Home() {
       <section className="relative py-20 md:py-28 px-6 text-center bg-gradient-to-b from-primary/5 via-accent/10 to-background overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(13,135,152,0.08),transparent_50%)]" />
         <div className="container mx-auto max-w-3xl relative z-10">
-          <p className="text-accent font-medium tracking-widest uppercase text-sm mb-4" data-testid="text-hero-tagline">
+          <p className="text-primary font-medium tracking-widest uppercase text-sm mb-4" data-testid="text-hero-tagline">
             Welcome
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 text-primary" data-testid="text-hero-title">
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 text-accent" data-testid="text-hero-title">
             Faith, Stories & Inspiration
           </h1>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-8" data-testid="text-hero-subtitle">
@@ -46,8 +46,8 @@ export default function Home() {
         <div className="container mx-auto max-w-5xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
-              <p className="text-accent font-medium tracking-widest uppercase text-sm mb-3">About</p>
-              <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-6 text-primary" data-testid="text-about-heading">
+              <p className="text-primary font-medium tracking-widest uppercase text-sm mb-3">About</p>
+              <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-6 text-accent" data-testid="text-about-heading">
                 Hey there, I'm so glad you're here!
               </h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
@@ -110,8 +110,8 @@ export default function Home() {
               {featuredPost && (
                 <div className="mb-12">
                   <div className="text-center mb-8">
-                    <p className="text-accent font-medium tracking-widest uppercase text-sm mb-2">Latest Post</p>
-                    <h2 className="font-serif text-3xl text-primary" data-testid="text-featured-heading">Featured</h2>
+                    <p className="text-primary font-medium tracking-widest uppercase text-sm mb-2">Latest Post</p>
+                    <h2 className="font-serif text-3xl text-accent" data-testid="text-featured-heading">Featured</h2>
                   </div>
                   <Link href={`/blog/${featuredPost.slug}`}>
                     <Card className="overflow-hidden hover-elevate cursor-pointer border-0 shadow-lg" data-testid={`card-featured-${featuredPost.id}`}>
@@ -150,8 +150,8 @@ export default function Home() {
                 <div>
                   <div className="flex items-center justify-between mb-8 gap-4 flex-wrap">
                     <div>
-                      <p className="text-accent font-medium tracking-widest uppercase text-sm mb-1">Browse</p>
-                      <h2 className="font-serif text-2xl text-primary" data-testid="text-recent-heading">Recent Posts</h2>
+                      <p className="text-primary font-medium tracking-widest uppercase text-sm mb-1">Browse</p>
+                      <h2 className="font-serif text-2xl text-accent" data-testid="text-recent-heading">Recent Posts</h2>
                     </div>
                     <Link href="/blog">
                       <Button variant="outline" data-testid="button-view-all">
