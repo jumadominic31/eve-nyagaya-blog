@@ -44,7 +44,9 @@ function App() {
       <TooltipProvider>
         <div className="min-h-screen bg-background">
           <Navbar />
-          <Router />
+          <div className="pt-16">
+            <Router />
+          </div>
         </div>
         <Toaster />
       </TooltipProvider>
