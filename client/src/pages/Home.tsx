@@ -38,12 +38,6 @@ export default function Home() {
                 Read the Blog
               </Button>
             </Link>
-            <Link href="/photos">
-              <Button size="lg" variant="outline" data-testid="button-photos">
-                View Gallery
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </Link>
           </div>
         </div>
       </section>
@@ -57,12 +51,16 @@ export default function Home() {
                 Hey there, I'm so glad you're here!
               </h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
-                Whether you're navigating the beautiful chaos of raising a family, seeking to deepen your faith, 
-                or looking for practical wisdom on finances and personal growth—you've found your community.
+                My name is Eve, I recently gave my life to Jesus Christ, and accepted Him as my Lord and Saviour. I celebrated my one year anniversary as a new child of God a month ago.
               </p>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Every week I share real talk, encouragement, and actionable insights to help you thrive 
-                in every season of life. Let's walk this journey together.
+                This is the 3rd time in my adult life that I am actually having a blog! First a solo travel blog in 2016-2019, then a food and women’s empowerment blog in 2024- 2025. And now 2026! I am back, but this time with Jesus Christ as my Lord and BOSS. I think I express myself better in writing, I am not such a good speaker, with my chest, I have tried and tested this all over social media in my past life 😃
+              </p>
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                I love to encourage and uplift those around me and I especially love to empower women. I am here to share my own  personal life experiences, faith journey, the transformation, what God has done and continues to do in my life and what I learn from Him everyday.
+              </p>
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                Welcome to the blog!
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2 text-accent">
